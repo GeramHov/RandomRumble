@@ -1,8 +1,38 @@
-<button type="button"
-      class="btn btn-danger material-tooltip-main w-100"
-      (click)="onClick()"
+<!-- HIT MONSTER -->
+<button type="button *ngIf="
+      class="btn btn-danger material-tooltip-main w-100 mb-1 mt-4"
+      [ngClass]="playersWhoPlayed?.includes(player?.id) || !player.mana ? 'disabled' : ''"
+      (click)="onClick(player?.id)"
 >
       hit
       <i class="fas fa-bomb"></i> 5
       <i class="fas fa-fire-alt"></i> - 5
+</button>
+
+<!-- HEAL THE PLAYER WITH MANA -->
+<button type="button"
+      class="btn btn-success material-tooltip-main w-100 my-1"
+      (click)="clickToHeal(player?.id)"
+>
+      heal
+      <i class="fa-solid fa-staff-snake"></i> 5
+      <i class="fa-regular fa-heart"></i> - 5
+</button>
+
+<!-- GET MANA BACK FROM HITPOINTS -->
+<button type="button"
+      class="btn btn-warning material-tooltip-main w-100 my-1"
+      (click)="clickToGetMana(player?.id)"
+>
+      mana
+      <i class="fa-regular fa-heart"></i> 5
+      <i class="fa-solid fa-heart-pulse"></i> - 5
+</button>
+
+<button type="button"
+      class="btn btn-primary material-tooltip-main w-100 my-1"
+      (click)="savePlayer(player?.id)"
+>
+      shield
+      <i class="fa fa-shield" aria-hidden="true"></i> 2 tours
 </button>

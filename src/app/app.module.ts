@@ -9,6 +9,10 @@ import { PlayerListComponent } from './components/player-list/player-list.compon
 import { PlayerCardComponent } from './components/player-card/player-card.component';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 import { ButtonCapacityComponent } from './components/button-capacity/button-capacity.component';
+import { StoreModule } from '@ngrx/store'; 
+import { EffectsModule } from '@ngrx/effects'; 
+import { gameReducer } from './reducers/game.reducer';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +24,9 @@ import { ButtonCapacityComponent } from './components/button-capacity/button-cap
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({game: gameReducer}), 
+    EffectsModule.forRoot([]), 
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,18 @@
+.card-animated{
+    animation: explode 1.5s forwards;
+    display: block;
+}
+
+@keyframes explode {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.5);
+      opacity: 0.5;
+    }
+    100% {
+      transform: translate(-100%, -100%) scale(2);
+      opacity: 0;
+    }
+  }
